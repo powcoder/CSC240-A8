@@ -1,0 +1,127 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage{comment}
+\includecomment{solution}
+\includecomment{question}
+\setlength{\parskip}{1ex}
+\def\nats {{\mathbb N}}
+\def\ints {{\mathbb Z}}
+\newcommand{\Implies}{\mbox{ IMPLIES }}
+\newcommand{\oor}{\mbox{ OR }}
+\newcommand{\aand}{\mbox{ AND }}
+\newcommand{\Not}{\mbox{ NOT }}
+\newcommand{\iimp}{\mbox{ IMPLIES }}
+\newcommand{\True}{\mbox{True}}
+\newcommand{\False}{\mbox{False}}
+
+\begin{document}
+\begin{center}
+\begin{solution}
+Solutions to
+\end{solution}
+
+{\bf \Large \bf CSC240 Winter 2021 Homework Assignment 8}\\
+\end{center}
+
+\noindent
+{\bf My name and student number:}
+
+\medskip
+
+\noindent
+{\bf The list of people with whom I discussed this homework assignment:}
+
+\medskip
+
+\begin{question}
+\noindent
+Define $(a,b)$ to be {\em a pair of locations containing closest numbers} in an array of numbers $L[1..n]$
+if $1 \leq a < b \leq n$ and
+the absolute value of the difference between $L[a]$ and $L[b]$ is less than or equal to the absolute value of the difference between the values in every two different locations of  $L[1..n]$.\\
+For example,
+(4,7) and (1,5) are pairs of locations containing closest numbers in [4,15,10,8,3,1,9] 
+and (2,4) is a pair of locations containing closest numbers in [4,10,15,10,5,23,22,20].
+
+\noindent
+Consider the following algorithm:
+\begin{tabbing}
+MM\=MM\=MM\=MM\=MM\=\kill
+Closest$(L,s,e)$:\\
+1.\> if $e = s+1$\\
+2.\> \>  then return $(s, e)$\\
+3.\>  $c \leftarrow s+1$\\
+4.\> for $i  \leftarrow s+2$ to $e$ do\\
+5.\> \> if $\left| L[s]-L[i]\right| < \left| L[s]-L[c]\right|$\\
+6.\> \> then $c \leftarrow i$\\
+7.\>  $(u,v) \leftarrow$ Closest($L,s+1,e$)\\
+8.\>  if $\left| L[s]-L[c] \right| \leq \left| L[u] - L[v ]\right|$\\ 
+9.\>  then return $(s,c)$ \\
+10.\> else return $(u,v)$
+\end{tabbing}
+
+\noindent
+If you prefer, you may replace line 4 by the two lines
+\begin{tabbing}
+MM\=MM\=MM\=MM\=MM\=\kill
+$4'$. \> $i \leftarrow s+2$\\
+$4''$. \> while $i \leq e$ do
+\end{tabbing}
+and add the line
+\begin{tabbing}
+MM\=MM\=MM\=MM\=MM\=\kill
+$6'$. \>\> $i \leftarrow i+1$
+\end{tabbing}
+after line 6.
+\end{question}
+
+\begin{enumerate}
+\item
+\label{specs}
+\begin{question}
+Give clear specifications for Closest$(L,s,e)$ that fully describe
+the relationship between its possible inputs and outputs.
+\end{question}
+
+\begin{solution}
+{\bf Solution:}
+
+\end{solution}
+
+\item
+\label{invariants}
+\begin{question}
+State all loop invariants satisfied by the loop on lines 4--6 that you need for your solution to question \ref{correctness}. Explicitly state at what point in the loop these invariants hold.
+\end{question}
+
+\begin{solution}
+{\bf Solution:}
+
+\end{solution}
+
+\item
+\begin{question}
+Prove that all the statements in your solution to question \ref{invariants} are loop invariants.
+\end{question}
+
+\begin{solution}
+{\bf Solution:}
+
+\end{solution}
+
+\item
+\label{correctness}
+\begin{question}
+Prove that Closest is correct with respect to the specifications in your solution to question \ref{specs}.
+\end{question}
+
+
+\begin{solution}
+{\bf Solution:}
+
+\end{solution}
+\end{enumerate}
+\begin{question}
+Note that, if your specifications do not fully describe the relationship between the possible inputs and outputs of Closest, you may not get full marks for the other questions, even if they are correct.
+\end{question}
+\end{document}
